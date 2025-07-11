@@ -1,0 +1,17 @@
+# Enviroment
+.venv/
+
+# Local settings
+.vscode/
+.vscode/settings.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# System files
+*.Log
+*.swp
+.DS_Store
+Thumbs.db
