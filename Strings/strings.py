@@ -40,8 +40,8 @@ def remove_suffix_ness(word):
 
     if word[-5] == 'i':
         return word[:-5] + 'y'
-    else:
-        return word[:-4]
+    return word[:-4]
+
 
 
 def adjective_to_verb(sentence, index):
