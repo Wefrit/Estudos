@@ -56,8 +56,8 @@ def letter_grades(highest):
     step = (highest - lowest_passing + 1) // 4
 
     thresholds = [lowest_passing]
-    for i in range(1, 4):
-        thresholds.append(lowest_passing + step * i)
+    for grade in range(1, 4):
+        thresholds.append(lowest_passing + step * grade)
 
     return thresholds
     
@@ -88,4 +88,3 @@ def perfect_score(student_info):
                 return [student[0], 100]
         return []
     
-print(perfect_score([['Joci', 0], ['Vlad', 1], ['Raiana', 0], ['Alessandro', 3]]))
