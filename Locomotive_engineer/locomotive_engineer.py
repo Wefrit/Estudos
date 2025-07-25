@@ -18,7 +18,7 @@ def fix_list_of_wagons(each_wagons_id, missing_wagons):
     :return: list - list of wagons.
     """
     first, second, third, *rest = each_wagons_id
-    correct_list = [third, *missing_wagons, first, second]
+    correct_list = [third, *missing_wagons, *rest, first, second]
     return correct_list
 
 
@@ -57,10 +57,3 @@ def fix_wagon_depot(wagons_rows):
 
     list_of_row = [list(column) for column in zip(*wagons_rows)]
     return list_of_row
-
-
-print(fix_wagon_depot([
-                    [(2, "red"), (4, "red"), (8, "red")],
-                    [(5, "blue"), (9, "blue"), (13,"blue")],
-                    [(3, "orange"), (7, "orange"), (11, "orange")],
-                    ]))
