@@ -4,10 +4,8 @@ from sets_categories_data import (VEGAN,
                                   VEGETARIAN,
                                   KETO,
                                   PALEO,
-                                  OMNIVORE,
                                   ALCOHOLS,
                                   SPECIAL_INGREDIENTS)
-
 
 def clean_ingredients(dish_name, dish_ingredients):
     """Remove duplicates from `dish_ingredients`.
@@ -35,9 +33,8 @@ def check_drinks(drink_name, drink_ingredients):
 
     """
     if set(drink_ingredients).isdisjoint(ALCOHOLS):
-        return (drink_name+" Mocktail", set(drink_ingredients))
-    return(drink_name+" Cocktail", set(drink_ingredients))
-
+        return drink_name+" Mocktail"
+    return drink_name+" Cocktail"
 
 def categorize_dish(dish_name, dish_ingredients):
     """Categorize `dish_name` based on `dish_ingredients`.
@@ -52,15 +49,14 @@ def categorize_dish(dish_name, dish_ingredients):
 
     """
     if dish_ingredients.issubset(VEGAN):
-        return (dish_name+": VEGAN")
-    elif dish_ingredients.issubset(VEGETARIAN):
-        return (dish_name+": VEGETARIAN")
-    elif dish_ingredients.issubset(PALEO):
-        return (dish_name+": PALEO")
-    elif dish_ingredients.issubset(KETO):
-        return (dish_name+": KETO")
+        return dish_name+": VEGAN"
+    if dish_ingredients.issubset(VEGETARIAN):
+        return dish_name+": VEGETARIAN"
+    if dish_ingredients.issubset(PALEO):
+        return dish_name+": PALEO"
+    if dish_ingredients.issubset(KETO):
+        return dish_name+": KETO"
     return dish_name+": OMNIVORE"      
-
 
 def tag_special_ingredients(dish):
     """Compare `dish` ingredients to `SPECIAL_INGREDIENTS`.
@@ -74,7 +70,6 @@ def tag_special_ingredients(dish):
     """
     special_ingredients = set(dish[1]).intersection(SPECIAL_INGREDIENTS)
     return(dish[0], set(special_ingredients))
-
 
 def compile_ingredients(dishes):
     """Create a master list of ingredients.
@@ -98,9 +93,8 @@ def separate_appetizers(dishes, appetizers):
     The function should return the list of dish names with appetizer names removed.
     Either list could contain duplicates and may require de-duping.
     """
-    return set(dishes).difference(appetizers)
-
-
+    only_dishes = list(set(dishes).difference(appetizers))
+    return only_dishes
 
 def singleton_ingredients(dishes, intersection):
     """Determine which `dishes` have a singleton ingredient (an ingredient that only appears once across dishes).
@@ -118,7 +112,3 @@ def singleton_ingredients(dishes, intersection):
     """
     compiled_dishes = set.union(*dishes)
     return compiled_dishes.symmetric_difference(intersection)
-
-
-
-print(singleton_ingredients(example_dishes, EXAMPLE_INTERSECTION))

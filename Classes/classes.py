@@ -1,6 +1,5 @@
 """Solution to Ellen's Alien Game exercise."""
 
-
 class Alien:
     """Create an Alien object with location x_coordinate and y_coordinate.
 
@@ -22,18 +21,18 @@ class Alien:
     health = 3
     total_aliens_created = 0
 
-    def __init__(self, x, y ):
-        self.x_coordinate = x
-        self.y_coordinate = y
+    def __init__(self, x_coordinate, y_coordinate ):
+        self.x_coordinate = x_coordinate
+        self.y_coordinate = y_coordinate
         Alien.total_aliens_created += 1
 
     def hit(self):
         if self.health > 0:
-            self.health -= 1               
+            self.health -= 1           
 
     def is_alive(self):
-       return self.health > 0
-    
+        return self.health > 0
+
     def teleport(self,new_x, new_y):
         self.x_coordinate = new_x
         self.y_coordinate = new_y
@@ -51,11 +50,6 @@ class Alien:
 def new_aliens_collection(position):
     aliens = []
     for coordinate in position:
-        x,y = coordinate
-        aliens.append(Alien(x,y))
+        x_coordinate,y_coordinate = coordinate
+        aliens.append(Alien(x_coordinate,y_coordinate))
     return aliens
-
-alien_start_positions = [(4, 7), (-1, 0)]
-aliens = new_aliens_collection(alien_start_positions)
-for alien in aliens:
-    	print(alien.x_coordinate, alien.y_coordinate)

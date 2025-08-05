@@ -17,9 +17,5 @@ def isosceles(sides):
 
 def scalene(sides):
     if istriangle(sides):
-        return equilateral == False and isosceles == False
+        return equilateral(sides) == False and isosceles(sides) == False
     return False
-
-
-
-print(isosceles([1, 3, 1]))

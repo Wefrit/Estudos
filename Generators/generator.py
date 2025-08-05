@@ -17,6 +17,8 @@ def generate_seat_letters(number):
     counter = 0
     while counter < number:
         for seat in seat_row:
+            if counter >= number:
+                break
             yield seat
             counter += 1
 
@@ -37,18 +39,20 @@ def generate_seats(number):
     Example: 3C, 3D, 4A, 4B
 
     """
-    seat_row = ["A","B","C","D"]
+    seat_row = ["A", "B", "C", "D"]
     seat_number = 1
-    count = 0
-    while count < number:
-        for seat in seat_row:
-            yield (f"{seat_number}{seat}")
-            count += 1
-            if seat_number == 13:
-                seat_number +=1
-                continue
-        seat_number += 1
+    counter = 0
 
+    while counter < number:
+        if seat_number == 13:
+            seat_number += 1
+            continue
+        for seat in seat_row:
+            if counter >= number:
+                break
+            yield f"{seat_number}{seat}"
+            counter += 1
+        seat_number += 1
 
 
 def assign_seats(passengers):
@@ -77,12 +81,4 @@ def generate_codes(seat_numbers, flight_id):
     ticket_id = 0
     for seat in seat_numbers:
         ticket_id = (f"{seat}{flight_id}0000")
-        yield ticket_id[:11]
-
-
-seat_numbers = ['1A', '17D']
-flight_id = 'CO1234'
-generate_codes(seat_numbers, flight_id)
-ticket_ids = generate_codes(seat_numbers, flight_id)
-print(next(ticket_ids))
-print(next(ticket_ids))
+        yield ticket_id[:12]
