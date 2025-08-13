@@ -18,11 +18,8 @@ def value(colors):
     """
     number = ''
     for color in colors:
+        if len(number) == 2:
+            break
         number += str(resistor_colors[color])
     int_number = int(number)
     return int_number
-
-
-print(value(['orange', 'orange']))  # Output: 33 
-
-

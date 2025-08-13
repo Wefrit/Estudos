@@ -25,6 +25,3 @@ def colors():
         list: A list of strings representing the colors of the resistor bands.
     """
     return list(codes.keys())
-
-print(color_code("red"))  # Output: 2
-print(colors())  # Output: ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white']
