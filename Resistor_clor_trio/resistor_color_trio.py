@@ -25,5 +25,3 @@ def label(colors):
         if value >= divisor:
             return f"{value // divisor} {suffix}"
     return "0 ohms"
-
-print(label(["black", "black", "black"]))

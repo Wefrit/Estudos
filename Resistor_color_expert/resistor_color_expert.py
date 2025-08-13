@@ -54,7 +54,4 @@ def resistor_label(colors):
     ]
     for divisor, suffix in prefixes:
         if value >= divisor:
-            return f"{value / divisor:.0f} {suffix} {tolerance}"
-
-
-print(resistor_label(["blue", "grey", "brown", "violet"]))  # Example usage
+            return f"{value / divisor} {suffix} {tolerance}" if value % divisor != 0 else f"{value // divisor} {suffix} {tolerance}"

@@ -4,5 +4,3 @@ def to_rna(dna_strand):
     for nucleotid in dna_strand:
         strand += RNA[nucleotid]
     return strand
-
-print(to_rna(''))  # Output: 'CGAU'
