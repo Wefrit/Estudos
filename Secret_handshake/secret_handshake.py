@@ -20,5 +20,3 @@ def commands(binary_str):
         result.reverse()
 
     return result
-
-print(commands('10011'))
