@@ -1,11 +1,8 @@
 def flatten(iterable):
     flattened_array = []
     for element in iterable:
-        if isinstance(element,list):
+        if isinstance(element,list) and element != None:
             flattened_array.extend(flatten(element))
-        else:
+        elif element != None:
             flattened_array.append(element)
     return flattened_array
-
-
-print(flatten([0, 2, [[2, 3], 8, 100, 4, [[[50]]]], -2]))
