@@ -46,7 +46,3 @@ def reverse(list):
     if list == []:
         return []
     return [item for item in reversed(list)]
-
-    
-
-print(reverse([1, 3, 5, 7]))
