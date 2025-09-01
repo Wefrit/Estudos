@@ -25,6 +25,3 @@ class SpaceAge:
     
     def on_neptune(self):
         return round(self.on_earth()  / 164.79132, 2)
-
-
-print(SpaceAge(189839836).on_venus())
