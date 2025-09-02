@@ -11,4 +11,4 @@ def sum_of_multiples(limit, multiples):
         for multiple in multiples:
             if multiple > 0 and n % multiple == 0:
                 uniques.add(n)
-    return sum(item for item in uniques )
+    return sum(item for item in uniques)
