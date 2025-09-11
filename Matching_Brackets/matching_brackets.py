@@ -27,14 +27,4 @@ def is_paired(input_string):
                 brackets.append(c)
             elif brackets[-1] == "{":
                 brackets.pop()
-        print(brackets)
     return brackets == []
-
-
-print(is_paired("{[)][]}"))
-
-
-
-
-
-
