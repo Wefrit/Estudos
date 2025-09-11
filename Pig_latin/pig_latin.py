@@ -19,8 +19,3 @@ def translate(text):
         result.append(word[idx:] + word[:idx] + "ay")
 
     return " ".join(result)
-
-# Testes
-print(translate("queen"))   # eenquay
-print(translate("my"))      # ymay
-print(translate("rhythm"))  # ythmrhay
