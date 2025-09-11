@@ -14,14 +14,16 @@ You can learn more here: https://en.wikipedia.org/wiki/Enumerated_type
 # Change the values as you see fit.
 
 
+SUBLIST = "SUBLIST"
+SUPERLIST = "SUPERLIST"
+EQUAL = "EQUAL"
+UNEQUAL = "UNEQUAL"
+
 def sublist(list_one, list_two):
     if list_one == list_two:
-        return "EQUAL"
-    if set(list_one).issubset(list_two):
-        return "SUBLIST"
-    if set(list_one).issuperset(set(list_two)):
-        return "SUPERLIST"
-    if set(list_one) != (set(list_two)):
-        return "UNEQUAL"
-    
-print(sublist([1, 2, 3], [2, 3, 4]))
+        return EQUAL
+    if len(list_one) == 0 or any(list_one == list_two[i:i+len(list_one)] for i in range(len(list_two) - len(list_one) + 1)):
+        return SUBLIST
+    if len(list_two) == 0 or any(list_two == list_one[i:i+len(list_two)] for i in range(len(list_one) - len(list_two) + 1)):
+        return SUPERLIST
+    return UNEQUAL
