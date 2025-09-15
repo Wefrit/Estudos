@@ -1,27 +1,30 @@
+import string
+
 def encode(plain_text):
-    alphabet = [
-        "a","b","c","d","e",
-        "f","g","h","i","j",
-        "k","l","m","n","o",
-        "p","q","r","s","t",
-        "u","v","w","x","y","z"
-                ]
+    alphabet = string.ascii_lowercase
+    reversed_alphabet = alphabet[::-1]
 
-    tebahpla = [
-        "z","y","x","w","v",
-        "u","t","s","r","q",
-        "p","o","n","m","l",
-        "k","j","i","h","g",
-        "f","e","d","c","b","a"
-                ]
-    new_txt = "".join(plain_text.lower().split())
-    decoded_text = ""
-    for c in new_txt:
-        if c in alphabet:
-            decoded_text += (tebahpla[alphabet.index(c)])
+    result = []
+    for c in plain_text.lower():
+        if c.isalpha():
+            result.append(reversed_alphabet[alphabet.index(c)])
+        elif c.isdigit():
+            result.append(c)
+
+    grouped = [''.join(result[i:i+5]) for i in range(0, len(result), 5)]
+    return ' '.join(grouped)
+
+
+def decode(cipher_text):
+    alphabet = string.ascii_lowercase
+    reversed_alphabet = alphabet[::-1]
+
+    cipher_text = ''.join(c for c in cipher_text.lower() if c.isalnum())
+
+    result = []
+    for c in cipher_text:
+        if c.isalpha():
+            result.append(alphabet[reversed_alphabet.index(c)])
         else:
-            decoded_text += c
-    return decoded_text        
-
-
-print(encode("OM G"))
+            result.append(c)
+    return ''.join(result)
