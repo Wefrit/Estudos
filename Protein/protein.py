@@ -16,22 +16,20 @@ def proteins(strand):
         RNA = RNA[3:]
 
     for protein in aminos:
-        if protein in Methionine and "Methionine" not in proteins:
+        if protein in Methionine:
             proteins.append("Methionine")
-        if protein in Phenylalanine and "Phenylalanine" not in proteins:
+        if protein in Phenylalanine:
             proteins.append("Phenylalanine")
-        if protein in Leucine and "Leucine" not in proteins:
+        if protein in Leucine:
             proteins.append("Leucine")
-        if protein in Serine and "Serine" not in proteins:
+        if protein in Serine:
             proteins.append("Serine")
-        if protein in Tyrosine and "Tyrosine" not in proteins:
+        if protein in Tyrosine:
             proteins.append("Tyrosine")
-        if protein in Cysteine and "Cysteine" not in proteins:
+        if protein in Cysteine:
             proteins.append("Cysteine")        
-        if protein in Tryptophan and "Tryptophan" not in proteins:
+        if protein in Tryptophan:
             proteins.append("Tryptophan")
         if protein in STOP:
             break
     return proteins
-
-print(proteins("UUUUUU"))
