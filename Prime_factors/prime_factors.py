@@ -9,6 +9,3 @@ def factors(value):
         else:
             div += 1
     return factor
-
-
-print(factors(60))
