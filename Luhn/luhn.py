@@ -1,19 +1,16 @@
 class Luhn:
     def __init__(self, card_num):
-        pass
+        self.card_num = card_num.replace(" ", "")
 
     def valid(self):
-        pass
-
-
-card_num = "4539 3195 0343 6467"
-card_num = card_num.replace(" ", "")
-luhn = []
-for i, d in enumerate(reversed(card_num)):
-    n = int(d)
-    if i % 2 == 1:  # "posição ímpar" a partir da direita
-        n *= 2
-        if n > 9:
-            n -= 9
-    luhn.append(n)
-print(sum(luhn))
+        if len(self.card_num) <= 1 or not self.card_num.isdigit():
+            return False
+        total = 0
+        for i, d in enumerate(reversed(self.card_num)):
+            n = int(d)
+            if i % 2 == 1:
+                n *= 2
+                if n > 9:
+                    n -= 9
+            total += n
+        return total % 10 == 0

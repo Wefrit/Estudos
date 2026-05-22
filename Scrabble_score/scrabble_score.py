@@ -4,9 +4,4 @@ letters = {"A" : 1, "E" : 1, "I" : 1, "O" : 1, "U" : 1, "L" : 1,
            "V" : 4, "W" : 4, "Y" : 4, "K" : 5, "J" : 8, "X" : 8, 
            "Q" : 10, "Z" : 10}
 def score(word):
-    total = 0
-    for letter in word:
-        total += letters[letter]
-    return total
-
-print(score("HOUSE"))
+    return sum(letters[letter] for letter in word.upper())

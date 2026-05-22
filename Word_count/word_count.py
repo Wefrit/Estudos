@@ -1,9 +1,8 @@
 import re
 from collections import Counter
+
 def count_words(sentence):
-    phrase = re.sub(r"[^a-zA-Z0-9\s]","", sentence)
+    phrase = re.sub(r"[^\w\s']|_", " ", sentence).lower()
     words = phrase.split()
-    return Counter(words)
-
-print(count_words("Teste inicial de algumas palavras e um numero que vai ser 254 preciso de palavras repetidas"))
-
+    cleaned_words = [w.strip("'") for w in words if w.strip("'")]
+    return Counter(cleaned_words)

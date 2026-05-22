@@ -4,6 +4,3 @@ def egg_count(display_value):
         if v == '1':
             eggs += 1
     return eggs
-
-
-print(egg_count(18))

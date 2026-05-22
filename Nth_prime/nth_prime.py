@@ -1,15 +1,15 @@
 def prime(number):
     primes = []
+    n = 2
+    if number < 1:
+        raise ValueError('there is no zeroth prime')
     while len(primes) < number:
-        for n in range (1, number + 1):
-            if n == 2:
-                primes.append(n)
-            else:
-                for number in primes:
-                    if n % number != 0:
-                        primes.append(n)
-                    else:
-                        continue
-    return primes
+        for p in primes:
+            if n % p == 0:
+                break
+        else:
+            primes.append(n)
+        n += 1
+    return primes[-1]
+                        
 
-print(prime(6))

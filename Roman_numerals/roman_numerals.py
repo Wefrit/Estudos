@@ -9,5 +9,3 @@ def roman(number):
             result += numerals[value]
             number -= value
     return result
-
-print(roman(1950))

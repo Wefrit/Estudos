@@ -1,16 +1,33 @@
-verses = {12 : "twelve Drummers Drumming, ", 11 : "eleven Pipers Piping, ", 10 : "ten Lords-a-Leaping, ",
-          9 : "nine Ladies Dancing, ", 8 : "eight Maids-a-Milking, ",
-          7 : "seven Swans-a-Swimming, ", 6 : "six Geese-a-Laying, ", 5 : "five Gold Rings, ", 4 : "four Calling Birds, ",
-          3 : "three French Hens, ", 2 : "two Turtle Doves ", 1 : "and a Partridge in a Pear Tree."}
+days = [
+    "first", "second", "third", "fourth", "fifth", "sixth",
+    "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth"
+]
 
-day = {2 : "second", 3 : "third", 4 : "fifth", 6 : "sixth", 7 : "seventh", 
-       8 : "eight", 9 : "ninth", 10 : "tenth", 11 : "eleventh", 12 : "twelfth" }
+gifts = [
+    "a Partridge in a Pear Tree.",
+    "two Turtle Doves",
+    "three French Hens",
+    "four Calling Birds",
+    "five Gold Rings",
+    "six Geese-a-Laying",
+    "seven Swans-a-Swimming",
+    "eight Maids-a-Milking",
+    "nine Ladies Dancing",
+    "ten Lords-a-Leaping",
+    "eleven Pipers Piping",
+    "twelve Drummers Drumming"
+]
+
 
 def recite(start_verse, end_verse):
-    if end_verse == 1:
-        return "On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree."
-    else:
-        return [f"On the {day[end_verse]} day of Christmas my true love gave to me: "  + " ".join(verses[verse] for verse in range(end_verse, start_verse - 1, -1))]
-    
-
-print(recite(2,2))
+    verses = []
+    for n in range(start_verse, end_verse + 1):
+        verse = f"On the {days[n-1]} day of Christmas my true love gave to me: "
+        presents = []
+        for i in range(n, 0, -1):
+            if i == 1 and n > 1:
+                presents.append("and " + gifts[0])
+            else:
+                presents.append(gifts[i-1])
+        verses.append(verse + ", ".join(presents))
+    return verses
